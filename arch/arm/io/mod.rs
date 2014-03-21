@@ -68,9 +68,9 @@ pub unsafe fn init(width: u32, height: u32)
 	ws(0x10120018, 0x82B);
 
     }
-    set_bg(0xF8F8FF);
-    set_fg(0xFAFC00);
-    set_cursor_color(0xFAFC00);
+    set_bg(0xF8F8FF);		// Although obvious, this sets the background color.
+    set_fg(0xFAFC00); 		// Although obvious, this sets the foreground color.
+    set_cursor_color(0xFAFC00); // Although obvious, this sets the cursor color.
     fill_bg();	
     sgash::drawstr(&"sgash > ");
     draw_cursor();
