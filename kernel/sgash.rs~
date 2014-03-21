@@ -169,8 +169,8 @@ pub unsafe fn init() {
 }
 
 unsafe fn prompt(startup: bool) {
-	putstr(&"\nsgash> ");
-	if !startup {drawstr(&"\nsgash> ");}
+	putstr(&"\nsgash > ");
+	if !startup {drawstr(&"\nsgash > ");}
 
 	buffer.reset();
 }
