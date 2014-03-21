@@ -182,6 +182,19 @@ unsafe fn parse() {
 	};
 	match buffer.getarg(' ', 0) {
 	    Some(y)        => {
+		let mut selfp: uint = y.p as uint;
+		putchar('\n');
+		drawchar('\n');
+		loop {
+			if (*(selfp as *char) == '\0') {
+				break;
+			}
+			else {
+				putchar(*(selfp as *char));
+				drawchar(*(selfp as *char));
+				selfp+=1;
+			}
+		}
 		if(y.streq(&"cat")) {
 		    match buffer.getarg(' ', 1) {
 			Some(x)        => {
@@ -202,7 +215,7 @@ unsafe fn parse() {
 		    drawstr(&"\nTEST YO");
 		}
 	    }
-	    None        => { }
+	    None        => {}
 	};
 	buffer.reset();
 }

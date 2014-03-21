@@ -169,8 +169,8 @@ pub unsafe fn init() {
 }
 
 unsafe fn prompt(startup: bool) {
-	putstr(&"\nsgash > ");
-	if !startup {drawstr(&"\nsgash > ");}
+	putstr(&"\nsgash> ");
+	if !startup {drawstr(&"\nsgash> ");}
 
 	buffer.reset();
 }
@@ -182,6 +182,17 @@ unsafe fn parse() {
 	};
 	match buffer.getarg(' ', 0) {
 	    Some(y)        => {
+		let mut selfp: uint = y.p as uint;
+		drawchar('\n');
+		loop {
+			if (*(selfp as *char) == '\0') {
+				break;
+			}
+			else {
+				drawchar(*(selfp as *char));
+				selfp+=1;
+			}
+		}
 		if(y.streq(&"cat")) {
 		    match buffer.getarg(' ', 1) {
 			Some(x)        => {
@@ -202,7 +213,7 @@ unsafe fn parse() {
 		    drawstr(&"\nTEST YO");
 		}
 	    }
-	    None        => { }
+	    None        => {}
 	};
 	buffer.reset();
 }
