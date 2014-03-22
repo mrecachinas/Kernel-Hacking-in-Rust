@@ -182,44 +182,52 @@ unsafe fn parse() {
 	};
 	match buffer.getarg(' ', 0) {
 	    Some(y)        => {
-		let mut selfp: uint = y.p as uint;
-		let mut count: uint = 1;
-		if (*(selfp as *char) != '\0') {
-			putchar('\n');
-			drawchar('\n');
-		}
-		loop {
-			if (*(selfp as *char) == '\0') {
-				break;
+		if y.streq(&"echo") {
+			let mut selfp: uint = y.p as uint;
+			let mut count: uint = 1;
+			/*if (*(selfp as *char) != '\0') {
+				putchar('\n');
+				drawchar('\n');
 			}
-			else {				
-				putchar(*(selfp as *char));
-				drawchar(*(selfp as *char));
-				selfp+=1;
-			}
-		}
-		loop {
-
-			match buffer.getarg(' ', count) {
-			    Some(x) => {
-				putchar(' ');
-				drawchar(' ');
-				let mut new_selfp: uint = x.p as uint;
-				loop {
-					if (*(new_selfp as *char) == '\0') {
-						break;
-					}
-					else {				
-						putchar(*(new_selfp as *char));
-						drawchar(*(new_selfp as *char));
-						new_selfp+=1;
-					}
+			loop {
+				if (*(selfp as *char) == '\0') {
+					break;
 				}
-				
-			    }
-			    None => { break }
+				else {				
+					putchar(*(selfp as *char));
+					drawchar(*(selfp as *char));
+					selfp+=1;
+				}
+			}*/
+			if (*(selfp as *char) != '\0') {
+				putchar('\n');
+				drawchar('\n');
 			}
-			count += 1;
+			loop {
+
+				match buffer.getarg(' ', count) {
+				    Some(x) => {
+					if (count >= 2){
+						putchar(' ');
+						drawchar(' ');
+					}
+					let mut new_selfp: uint = x.p as uint;
+					loop {
+						if (*(new_selfp as *char) == '\0') {
+							break;
+						}
+						else {				
+							putchar(*(new_selfp as *char));
+							drawchar(*(new_selfp as *char));
+							new_selfp+=1;
+						}
+					}
+				
+				    }
+				    None => { break }
+				}
+				count += 1;
+			}
 		}
 		if(y.streq(&"cat")) {
 		    match buffer.getarg(' ', 1) {
@@ -239,6 +247,10 @@ unsafe fn parse() {
 		if(y.streq(&"open")) {
 		    putstr(&"\nTEST YO");
 		    drawstr(&"\nTEST YO");
+		}
+		else {
+			putstr(&"\nCommand unrecognized");
+			drawstr(&"\nCommand unrecognized");
 		}
 	    }
 	    None        => {}
