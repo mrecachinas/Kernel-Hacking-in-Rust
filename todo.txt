@@ -1,7 +1,3 @@
-Problem 1. Modify kernel/sgash.rs to make it prompt you with sgash> whenever the user types enter. (The actual change is simple, but the point of this question is to get you starting to explore the Ironkernel code.)
-
-Problem 2. Change the color scheme of Ironkernel to something cooler. Bonus points if you allow users to change their own colors. Be prepared to explain how characters are drawn to the screen during the demo. (Hint: look in arch/arm/io)
+*Be prepared to explain how characters are drawn to the screen during the demo. (Hint: look in arch/arm/io)
 
 Problem 3. After a particularly long and painful night of kernel-hacking, you are starting to feel like everything is upside-down. To correct this, modify the code so characters are printed upside-down (that is, the letters should appear normal if you turn the screen upside-down). (Hint: this only involves changing one line of code.)
-
-Problem 4. Modfify kernel/sgash.rs to echo whatever you type into the prompt back to you on the second line.
