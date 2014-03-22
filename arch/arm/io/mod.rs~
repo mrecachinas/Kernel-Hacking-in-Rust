@@ -72,7 +72,7 @@ pub unsafe fn init(width: u32, height: u32)
     set_fg(0xFAFC00); 		// Although obvious, this sets the foreground color.
     set_cursor_color(0xFAFC00); // Although obvious, this sets the cursor color.
     fill_bg();	
-    sgash::drawstr(&"sgash > ");
+    sgash::drawstr(&"sgash> ");
     draw_cursor();
 }
 
@@ -114,7 +114,7 @@ pub unsafe fn draw_char(c: char)
 	while i < CURSOR_WIDTH
 	{
 	    //let addr = START_ADDR + 4*(CURSOR_X + CURSOR_WIDTH - i + SCREEN_WIDTH*(CURSOR_Y + j));
-	    //let addr = START_ADDR + 4*(CURSOR_X + CURSOR_WIDTH + SCREEN_WIDTH*CURSOR_Y) - 4*i + 4*SCREEN_WIDTH*j
+	    addr = START_ADDR + 4*(CURSOR_X + CURSOR_WIDTH + SCREEN_WIDTH*CURSOR_Y) - 4*i + 4*SCREEN_WIDTH*j
 	    if ((map[j] >> 4*i) & 1) == 1
 	    {
 		*(addr as *mut u32) = FG_COLOR;
