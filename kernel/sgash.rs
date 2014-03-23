@@ -248,9 +248,12 @@ unsafe fn parse() {
 		    putstr(&"\nTEST YO");
 		    drawstr(&"\nTEST YO");
 		}
+		if y.streq(&"ls") || y.streq(&"cat") || y.streq(&"cd") || y.streq(&"rm") || y.streq(&"mkdir") || y.streq(&"pwd") || y.streq(&"mv") || y.streq(&"wr") {}
 		else {
-			putstr(&"\nCommand unrecognized");
-			drawstr(&"\nCommand unrecognized");
+			if y.len() > 0 && !y.streq("echo") {			
+				putstr(&"\nCommand unrecognized");
+				drawstr(&"\nCommand unrecognized");
+			}
 		}
 	    }
 	    None        => {}
