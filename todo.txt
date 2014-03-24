@@ -1,3 +1,1 @@
 *Be prepared to explain how characters are drawn to the screen during the demo. (Hint: look in arch/arm/io)
-
-Problem 3. After a particularly long and painful night of kernel-hacking, you are starting to feel like everything is upside-down. To correct this, modify the code so characters are printed upside-down (that is, the letters should appear normal if you turn the screen upside-down). (Hint: this only involves changing one line of code.)
