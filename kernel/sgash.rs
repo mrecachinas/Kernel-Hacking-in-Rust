@@ -52,6 +52,7 @@ pub unsafe fn putcstr(s: cstr)
 }
 
 pub unsafe fn parsekey(x: char) {
+	//*(parsekey as *mut u32) = 4414;
 	let x = x as u8;
 	// Set this to false to learn the keycodes of various keys!
 	// Key codes are printed backwards because life is hard
